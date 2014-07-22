@@ -1,8 +1,8 @@
 angular.module('data-sync', [
-
+  'localforage',
+  'lodash',
+  'pubnub'
 ])
-.value('_', window._)
-.value('PubNub', window.PUBNUB)
 
 .factory('$PubNub', function(PubNub, Keys) {
 
@@ -17,7 +17,7 @@ angular.module('data-sync', [
 
 })
 
-.factory('Model', function(_, $PubNub) {
+.factory('Model', function($PubNub, $localForage, _) {
 
   var _cache = {};
 

@@ -2,10 +2,17 @@ doctype
 html
 head
   title PubNub Data Sync with AngularJS
-  script(type='text/javascript', src='bower_components/pubnub/web/pubnub.js')
-  script(type='text/javascript', src='bower_components/lodash/dist/lodash.js')
-  script(type='text/javascript', src='bower_components/angular/angular.js')
-  script(type='text/javascript', src='app.js')
+  script.
+    if (Error && Error.stackTraceLimit) { Error.stackTraceLimit = Infinity; }
+  script(src='bower_components/localforage/dist/localforage.js')
+  script(src='bower_components/lodash/dist/lodash.js')
+  script(src='bower_components/pubnub/web/pubnub.js')
+  script(src='bower_components/angular/angular.js')
+  script(src='bower_components/angular-localforage/dist/angular-localForage.js')
+  script(src='common/localforage.js')
+  script(src='common/lodash.js')
+  script(src='common/pubnub.js')
+  script(src='app.js')
 
 body(ng-app='data-sync')
   section(ng-controller='AppCtrl as appCtrl')
