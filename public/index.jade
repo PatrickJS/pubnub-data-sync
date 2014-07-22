@@ -1,0 +1,30 @@
+doctype
+html
+head
+  title PubNub Data Sync with AngularJS
+  script(type='text/javascript', src='bower_components/pubnub/web/pubnub.js')
+  script(type='text/javascript', src='bower_components/lodash/dist/lodash.js')
+  script(type='text/javascript', src='bower_components/angular/angular.js')
+  script(type='text/javascript', src='app.js')
+
+body(ng-app='data-sync')
+  section(ng-controller='AppCtrl as appCtrl')
+    img(src='img/pubnub.png', width='25%')
+    ul
+      li(ng-repeat='model in appCtrl.collection track by $index | orderBy:\'created_at\':true')
+        | {{ model.content }}
+        button(ng-click='remove(model.id)') X
+
+    form(ng-submit='add(model)')
+      input(ng-model='model.content', autofocus='autofocus')
+      button Add
+
+    pre
+      | {{ appCtrl.collection | json }}
+
+  script.
+    angular.module('data-sync')
+    .constant('Keys', {
+      pub: "#{keys.PUB}",
+      sub: "#{keys.SUB}"
+    })
