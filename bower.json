@@ -1,0 +1,20 @@
+{
+  "name": "pubnub-data-sync",
+  "version": "0.0.0",
+  "authors": [
+    "gdi2290 <github@gdi2290.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pubnub": "feature-pt74838232",
+    "angular": "~1.3.0-beta.16",
+    "lodash": "~2.4.1"
+  }
+}
